@@ -21,4 +21,5 @@ jobs:
             cd /var/www/html/hrvoje_krhac
             git pull origin main
             php artisan migrate
+            composer update
             composer install
