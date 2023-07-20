@@ -19,7 +19,6 @@ jobs:
       - run: php artisan key:generate
       - run: chmod -R 777 storage bootstrap/cache
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
       - name: Create DB
         run: |
           mkdir -p database
