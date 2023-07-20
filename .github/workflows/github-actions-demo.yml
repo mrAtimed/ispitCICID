@@ -1,29 +1,26 @@
+
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
 jobs:
-  laravel-tests:
-
+  Explore-GitHub-Actions:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+      - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
         with:
           php-version: '8.1'
-          
-      uses: actions/checkout@v3
-    - name: Copy .env
-      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-    - name: Install Dependencies
-      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-    - name: Generate key
-      run: php artisan key:generate
-    - name: Dir Permissions
-      run: chmod -R 777 storage bootstrap/cache
-    - name: Create DB
-      run: |
-        mkdir -p database
-        touch database/database.sqlite
+      - run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+      - run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - run: php artisan key:generate
+      - run: chmod -R 777 storage bootstrap/cache
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+      - name: Create DB
+        run: |
+          mkdir -p database
+          touch database/database.sqlite
